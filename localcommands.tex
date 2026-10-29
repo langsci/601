@@ -1,0 +1,44 @@
+% \newcommand{\addtext}[2]{
+%     \chapter{#2}\label{text:#1}
+%     \section*{Metadata}
+%     \input{chapters/#1/meta_#1.tex}
+%     \section*{Summary \& background}
+%     \input{chapters/#1/intro_#1.tex}
+%     \section*{Parallel Text}
+%     \input{chapters/#1/translation_#1.tex}
+%     \section*{Glossed text}
+%     \input{chapters/#1/glosses_#1.tex}
+% }
+
+\newcommand{\til}{$\sim$}
+
+\hypersetup{hypertexnames=false}%fixes the wrong hyperlinks after \setcounter{chapter}{0} in main.tex
+
+\newcommand{\textref}[1]{Text~\ref{#1}}%xref command for texts
+\renewcommand{\sectref}[1]{Section~\ref{#1}}%xref command sections
+
+%\examplesitalics%morpheme line of example appears in italics
+\renewcommand{\exfont}{\itshape}%text line of examples appears in italics
+
+
+\DeclareGraphicsExtensions{.jpg,.png,.pdf}
+
+% \RenewDocumentCommand{\includepaper}{m}{%
+%     \bgroup
+%       \renewcommand{\newlineCover}{\\}
+%       \renewcommand{\documentclass}[2][]{}%
+%       \renewcommand{\usepackage}[2][]{}%
+%       \renewenvironment{document}{\begingroup}{\endgroup}
+%       \includepaper@body
+%       % \begin{refsection}
+%         \renewcommand{\lsCollectionPaperCitationText}{\fullciteFooter{#1footer}}
+%         \include{#1}%
+%         \if@partsw\relax\else% This switch controls whether the included chapter is in the range of \includeonly. It's from source2e.
+%           \addtocounter{page}{-1}
+%           \edef\lsCollectionPaperLastPage{\thepage}	% \lsCollectionPaperFirstPage is defined in \includepaper@body
+%           \addtocounter{page}{1}
+%           \lsCollectionMetadataToBibliography{#1}
+%         \fi% If the paper is not within \includeonly, don't do anything.
+%       % \end{refsection}
+%     \egroup
+% } %end NewDocumentCommand
